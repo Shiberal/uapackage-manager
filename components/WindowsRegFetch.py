@@ -28,7 +28,6 @@ def getReg():
     return software_list
 
 
-
 def getPathByName(appName):
     software_list = getReg()
     for software in software_list:
@@ -37,10 +36,10 @@ def getPathByName(appName):
     return "undefined"
 
 
-
-
-def getRegByPath():
-    software_list = foo(winreg.HKEY_LOCAL_MACHINE, winreg.KEY_WOW64_32KEY) + foo(
-    winreg.HKEY_LOCAL_MACHINE, winreg.KEY_WOW64_64KEY) + foo(winreg.HKEY_CURRENT_USER, 0)
-    return software_list
+def getAppList():
+    software_list = getReg()
+    app_list = []
+    for software in software_list:
+        app_list.append( software['name'])
+    return app_list
 
